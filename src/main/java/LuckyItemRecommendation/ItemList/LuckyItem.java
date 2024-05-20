@@ -7,7 +7,7 @@ public class LuckyItem implements LuckyList{
     public void luckyItem() {
         // 랜덤 출력
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(2);
             ArrayList<String> luckyItems = new ArrayList<>();
 
             luckyItems.add("장 미 꽃 다 발");
@@ -30,7 +30,7 @@ public class LuckyItem implements LuckyList{
     @Override
     public void luckyColor() {
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(2);
             ArrayList<String> luckyColors = new ArrayList<>();
 
             luckyColors.add("R E D");
@@ -51,7 +51,7 @@ public class LuckyItem implements LuckyList{
     @Override
     public void luckyNumber() {
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(2);
             int randomIndex = (int) (Math.random() * 100) + 1; // 1부터 100까지의 무작위 숫자 생성
             System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ " + randomIndex +" ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
         } catch (InterruptedException e) {

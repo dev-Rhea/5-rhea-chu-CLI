@@ -3,7 +3,7 @@ package LuckyItemRecommendation;
 import java.util.Scanner;
 
 public class LuckyItemMain {
-    static boolean fin = false;
+
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String str;
@@ -19,8 +19,22 @@ public class LuckyItemMain {
 
         System.out.println(".･ ｡ ⊹ + ஐ ஐ 시 작 하 시 겠 습 니 까? ஐ ஐ *+ ⊹ ｡ ･.");
         System.out.println(".･ ｡ ⊹ + ஐ ஐ 문 자 를 입 력 해 주 세 요 ஐ ஐ *+ ⊹ ｡ ･.");
+
         str = sc.nextLine();
 
+        while(true){
+            if(!str.isEmpty()){
+                choice.TodayWeather();
+            }
+            else if(str.isEmpty()){
+                System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
+                System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
+                str = sc.nextLine();
+            }
+            else {
+                break;
+            }
+        }
 
 
     }

@@ -166,7 +166,7 @@ public class UserChoice implements LuckyItemQuestion {
         while(true){
             System.out.println(".･ ｡ ⊹ + ஐ 행 운 을 불 러 오 는 중 ஐ + ⊹ ｡ ･." + "\n");
             try {
-                TimeUnit.SECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(3);
                 System.out.println(".･ ｡ ⊹ + ஐ 당 신 의 행 운 을 높 여 줄 ஐ + ⊹ ｡ ･.");
                 System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ 아 이 템 은 ? ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
                 LuckyItem item = new LuckyItem();
