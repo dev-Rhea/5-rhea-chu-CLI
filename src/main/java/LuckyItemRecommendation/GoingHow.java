@@ -3,40 +3,40 @@ package LuckyItemRecommendation;
 import java.util.Scanner;
 
 public class GoingHow extends UserChoice{
-    public void goingHow(){
+    public void GoHow(){
         Scanner sc = new Scanner(System.in);
-        String[] how = {"1. 버 스", "2. 지하철", "3. 기 차", "4. 비행기", "5. 고속 버스", "6. 자전거", "7. 킥보드", "8. 택 시", "9. 걸어서"};
+        String[] how;
+        int howChoice;
+        String howMsg;
 
         while(true){
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ 어 떻 게 가 볼 건 가 요 ? ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            how = new String[]{"1. 버 스", "2. 지하철", "3. 기 차",
+                    "4. 비행기", "5. 고속 버스", "6. 자전거", "7. 킥보드", "8. 택 시", "9. 걸어서"};
+            howMsg = "어 떻 게 가 볼 건 가 요?";
+
+            MainMsg(howMsg);
             for(String s : how){
                 System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + s + " ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
             }
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ+ ⊹ ｡ ･." + "\n");
-
-            int howChoice = 0;
+            ChoiceMsg();
 
             try{
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 선 택 은 ? ஐ ஐ + ⊹ ｡ ･.");
                 howChoice = sc.nextInt();
                 switch (howChoice) {
                     case 1, 2, 3, 4, 5, 6, 7, 8, 9 -> {
                         WhatDoing doing = new WhatDoing();
-                        doing.whatDoing();
+                        doing.WhatDo();
                     }
                     default -> {
-                        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                        System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･." + "\n");
+                        ErrorMsg();
                         continue;
                     }
 
                 }
             }
             catch(Exception e){
-                System.err.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                continue;
+                ErrorMsg();
+                howChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
             }
         }
     }

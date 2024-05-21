@@ -10,34 +10,34 @@ public class UserChoice implements LuckyItemQuestion {
 
     @Override
     public void TodayWeather() {
-        String[] weather = {"1. 맑음", "2. 흐림", "3. 비", "4. 더움", "5. 추움"};
+        String[] weather;
+        int weatherChoice;
+        String weatherMsg;
+
         while (true) {
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ 오 늘 의 날 씨 는 ? ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            weather  = new String[]{"1. 맑음", "2. 흐림", "3. 비", "4. 더움", "5. 추움"};
+            weatherMsg = "오 늘 의 날 씨 는?";
+            MainMsg(weatherMsg);
             for (String s : weather) {
                 System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + s + " ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
             }
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
+            ChoiceMsg();
 
-            int whetherChoice = 0;
             try {
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 선 택 은 ? ஐ ஐ + ⊹ ｡ ･.");
-                whetherChoice = sc.nextInt();
-                switch (whetherChoice) {
+                weatherChoice = sc.nextInt();
+                switch (weatherChoice) {
                     case 1, 2, 3, 4, 5 -> {
                         TodayFeelings();
                     }
                     default -> {
-                        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                        System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
+                        ErrorMsg();
                         continue;
                     }
                 }
             } catch (Exception e) {
-                System.err.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
+                ErrorMsg();
+                weatherChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
 
-                continue;
             }
 
         }
@@ -45,34 +45,35 @@ public class UserChoice implements LuckyItemQuestion {
 
     @Override
     public void TodayFeelings() {
-        String[] Feelings = {"1. 상 쾌", "2. 우 울", "3. 분 노", "4. 유 쾌", "5. 평 범", "6. 짜 증", "7. 따 분", "8. 짜 릿"};
+        String[] Feelings;
+        int FeelingsChoice;
+        String FeelingsMsg;
+
         while (true) {
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ 오 늘 의 기 분 은 ? ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            Feelings = new String[]{"1. 상 쾌", "2. 우 울", "3. 분 노", "4. 유 쾌",
+                    "5. 평 범", "6. 짜 증", "7. 따 분", "8. 짜 릿"};
+            FeelingsMsg = "오 늘 의 기 분 은 ?";
+
+            MainMsg(FeelingsMsg);
             for(String s : Feelings){
                 System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + s + " ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
             }
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
+            ChoiceMsg();
 
-            int FeelingsChoice = 0;
             try {
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 선 택 은 ? ஐ ஐ + ⊹ ｡ ･.");
                 FeelingsChoice = sc.nextInt();
                 switch (FeelingsChoice) {
                     case 1, 2, 3, 4, 5, 6, 7, 8, 9 -> {
                         AloneOrNot();
                     }
                     default -> {
-                        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                        System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
+                        ErrorMsg();
                         continue;
                     }
                 }
             } catch (Exception e) {
-                System.err.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-
-                continue;
+                ErrorMsg();
+                FeelingsChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
             }
         }
 
@@ -80,19 +81,20 @@ public class UserChoice implements LuckyItemQuestion {
 
     @Override
     public void AloneOrNot() {
-        String[] alone = {"1. 네", "2. 아니오"};
+        String[] alone;
+        int aloneOrNotChoice;
+        String aloneMsg;
 
         while (true) {
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ 혼 자 이 신 가 요 ? ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            alone  = new String[]{"1. 네", "2. 아니오"};
+            aloneMsg = "혼 자 이 신 가 요 ?";
+
+            MainMsg(aloneMsg);
             for(String s : alone){
                 System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + s + " ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
             }
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 선 택 은 ? ஐ ஐ + ⊹ ｡ ･.");
+            ChoiceMsg();
 
-            int aloneOrNotChoice = 0;
             try {
                 aloneOrNotChoice = sc.nextInt();
                 switch (aloneOrNotChoice) {
@@ -104,70 +106,72 @@ public class UserChoice implements LuckyItemQuestion {
                         who.MeetWho();
                     }
                     default -> {
-                        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                        System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
-                        continue;
+                        ErrorMsg();
+                        aloneOrNotChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
                     }
                 }
             } catch (Exception e) {
-                System.err.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
+                ErrorMsg();
                 continue;
             }
         }
     }
 
     public void GoingWhere() {
-        String[] where = {"1. 카 페", "2. 도서관", "3. 학 교", "4. 회 사", "5. 놀이 공원", "6. 바 다", "7. 숲 & 산", "8. 전 시 회"
-                , "9. 집이 최고"};
+        String[] where;
+        int whereChoice;
+        String whereMsg;
 
         while (true) {
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ 어 디 로 가 볼 건 가 요 ? ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            where = new String[]{"1. 카 페", "2. 도서관", "3. 학 교", "4. 회 사",
+                    "5. 놀이 공원", "6. 바 다", "7. 숲 & 산", "8. 전 시 회", "9. 집이 최고"};
+            whereMsg = "어 디 로 가 볼 건 가 요?";
+
+            MainMsg(whereMsg);
             for(String s : where){
                 System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + s + " ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
             }
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 선 택 은 ? ஐ ஐ + ⊹ ｡ ･.");
-
-            int whereChoice = 0;
+            ChoiceMsg();
 
             try {
                 whereChoice = sc.nextInt();
                 switch (whereChoice) {
                     case 1, 2, 3, 4, 5, 6, 7, 8, 9 -> {
                         GoingHow how = new GoingHow();
-                        how.goingHow();
+                        how.GoHow();
                     }
                     default -> {
-                        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                        System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
+                        ErrorMsg();
                         continue;
                     }
                 }
             } catch (Exception e) {
-                System.err.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                continue;
+                ErrorMsg();
+                whereChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
             }
         }
     }
 
     @Override
-    public void luckyPrint() {
+    public void LuckyPrint() {
         while(true){
+            String last;
+            String itemList;
             System.out.println(".･ ｡ ⊹ + ஐ 행 운 을 불 러 오 는 중 ஐ + ⊹ ｡ ･." + "\n");
             try {
                 TimeUnit.SECONDS.sleep(3);
-                System.out.println(".･ ｡ ⊹ + ஐ 당 신 의 행 운 을 높 여 줄 ஐ + ⊹ ｡ ･.");
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ 아 이 템 은 ? ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
+                itemList = "아 이 템 은 ?";
+                LuckyListPrint(itemList);
                 LuckyItem item = new LuckyItem();
-                item.luckyItem();
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 행 운 을 높 여 줄 ஐ ஐ + ⊹ ｡ ･.");
-                System.out.println("  .･ ｡ ⊹ + ஐ ஐ ஐ ஐ 컬 러 는 ? ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
-                item.luckyColor();
-                System.out.println(".･ ｡ ⊹ + ஐ 당 신 의 행 운 을 높 여 줄 ஐ + ⊹ ｡ ･.");
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 숫 자 는 ? ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
-                item.luckyNumber();
+                item.LuckyThing();
+
+                itemList = "컬 러 는 ?";
+                LuckyListPrint(itemList);
+                item.LuckyColor();
+
+                itemList = "숫 자 는 ?";
+                LuckyListPrint(itemList);
+                item.LuckyNumber();
 
                 System.out.println(" .･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
                 System.out.println(" .･ ｡ ⊹ + ஐ 추 천 템 을 활 용 하 시 고 ஐ + ⊹ ｡ ･.");
@@ -178,8 +182,7 @@ public class UserChoice implements LuckyItemQuestion {
                 System.out.println(" .･ ｡ ⊹ + ஐ 다 시 하 시 겠 습 니 까 ? ஐ + ⊹ ｡ ･.");
                 System.out.println("  .･ ｡ ⊹ + ஐ ஐ ஐ ஐ y / n ஐ ஐ ஐ ஐ + ⊹ ｡ ･."+ "\n");
 
-                String last = sc.next();
-
+                last  = sc.next();
                 switch (last){
                     case "y" -> {
                         TodayWeather();
@@ -190,8 +193,8 @@ public class UserChoice implements LuckyItemQuestion {
                         System.exit(0);
                     }
                     default -> {
-                        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･." + "\n");
-                        endOrNot();
+                        ErrorMsg();
+                        EndOrNot();
                         break;
                     }
                 }
@@ -203,11 +206,12 @@ public class UserChoice implements LuckyItemQuestion {
         }
     }
 
-    private void endOrNot() {
+    private void EndOrNot() {
+        String ans = sc.nextLine();
+
         System.out.println(" .･ ｡ ⊹ + ஐ 다 시 하 시 겠 습 니 까 ? ஐ + ⊹ ｡ ･.");
         System.out.println("  .･ ｡ ⊹ + ஐ ஐ ஐ ஐ y / n ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
 
-        String ans = sc.nextLine();
         switch (ans){
             case "y" -> {
                 TodayWeather();
@@ -218,9 +222,34 @@ public class UserChoice implements LuckyItemQuestion {
                 System.exit(0);
             }
             default -> {
-                endOrNot();
+                EndOrNot();
                 break;
             }
         }
+    }
+
+    // 입력 오류 메세지
+    public void ErrorMsg(){
+        System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
+        System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
+    }
+
+    // 숫자 입력 메세지
+    public void ChoiceMsg(){
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ 당 신 의 선 택 은 ? ஐ ஐ + ⊹ ｡ ･.");
+    }
+
+    // 메인 메세지
+    public void MainMsg(String msg){
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ " + msg +" ஐ ஐ + ⊹ ｡ ･.");
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+    }
+
+    // 행운 목록 출력 메세지
+    private void LuckyListPrint(String list){
+        System.out.println(".･ ｡ ⊹ + ஐ 당 신 의 행 운 을 높 여 줄 ஐ + ⊹ ｡ ･.");
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ "+ list +" ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
     }
 }

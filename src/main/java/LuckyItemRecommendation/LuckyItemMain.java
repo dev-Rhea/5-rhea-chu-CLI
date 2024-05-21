@@ -27,15 +27,13 @@ public class LuckyItemMain {
                 choice.TodayWeather();
             }
             else if(str.isEmpty()){
-                System.out.println(".･ ｡ ⊹ + ஐ 잘 못 된 입 력 입 니 다 ! ஐ + ⊹ ｡ ･.");
-                System.out.println(".･ ｡ ⊹ + ஐ 다 시 입 력 헤 주 세 요 ! ஐ + ⊹ ｡ ･."+ "\n");
+                choice.ErrorMsg();
                 str = sc.nextLine();
             }
             else {
                 break;
             }
         }
-
-
+        sc.close();
     }
 }

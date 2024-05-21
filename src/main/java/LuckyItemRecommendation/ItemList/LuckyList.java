@@ -1,9 +1,9 @@
 package LuckyItemRecommendation.ItemList;
 
 public interface LuckyList {
-    public void luckyItem();
+    public void LuckyThing();
 
-    public void luckyColor();
+    public void LuckyColor();
 
-    public void luckyNumber();
+    public void LuckyNumber();
 }

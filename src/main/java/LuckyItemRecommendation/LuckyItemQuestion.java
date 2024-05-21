@@ -5,5 +5,6 @@ public interface LuckyItemQuestion {
     public void TodayFeelings();
     public void GoingWhere();
     public void AloneOrNot();
-    public void luckyPrint();
+    public void LuckyPrint();
+    public void ErrorMsg();
 }
