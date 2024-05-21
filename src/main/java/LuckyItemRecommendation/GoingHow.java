@@ -5,20 +5,15 @@ import java.util.Scanner;
 public class GoingHow extends UserChoice{
     public void goingHow(){
         Scanner sc = new Scanner(System.in);
+        String[] how = {"1. 버 스", "2. 지하철", "3. 기 차", "4. 비행기", "5. 고속 버스", "6. 자전거", "7. 킥보드", "8. 택 시", "9. 걸어서"};
 
         while(true){
             System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
             System.out.println(".･ ｡ ⊹ + ஐ 어 떻 게 가 볼 건 가 요 ? ஐ + ⊹ ｡ ･.");
             System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 1. 버 스 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 2. 지하철 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 3. 기 차 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 4. 비행기 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 5. 고속 버스 ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 6. 자전거 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 7. 킥보드 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 8. 택 시 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
-            System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ 9. 걸어서 ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            for(String s : how){
+                System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + s + " ஐ ஐ ஐ ஐ + ⊹ ｡ ･.");
+            }
             System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ ஐ+ ⊹ ｡ ･." + "\n");
 
             int howChoice = 0;
