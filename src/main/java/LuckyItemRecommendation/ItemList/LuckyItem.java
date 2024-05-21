@@ -22,7 +22,7 @@ public class LuckyItem implements LuckyList{
             luckyItems.add("펜");
 
             randomIndex = (int) (Math.random() * luckyItems.size());
-            LuckyItemPrint(Integer.parseInt(luckyItems.get(randomIndex))); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
+            LuckyItemPrint(luckyItems.get(randomIndex)); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -42,7 +42,8 @@ public class LuckyItem implements LuckyList{
             luckyColors.add("O R A N G E");
 
             randomIndex = (int) (Math.random() * luckyColors.size());
-            LuckyItemPrint(Integer.parseInt(luckyColors.get(randomIndex))); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
+
+            LuckyItemPrint(luckyColors.get(randomIndex)); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -55,13 +56,13 @@ public class LuckyItem implements LuckyList{
             TimeUnit.SECONDS.sleep(2);
             // 1부터 100까지의 무작위 숫자 생성
             randomIndex = (int) (Math.random() * 100) + 1;
-            LuckyItemPrint(randomIndex);
+            LuckyItemPrint(Integer.toString(randomIndex));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private void LuckyItemPrint(int thing){
-        System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ " + thing +" ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
+    private void LuckyItemPrint(String thing){
+        System.out.println(".･ ｡ ⊹ + ஐ ஐ ஐ ஐ " + thing +" ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
     }
 }
