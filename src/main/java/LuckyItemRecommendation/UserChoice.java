@@ -13,8 +13,9 @@ public class UserChoice implements LuckyItemQuestion {
         String[] weather;
         int weatherChoice;
         String weatherMsg;
+        boolean isValid;
 
-        while (true) {
+        do { // 어떤 행동을 최소 1회 수행한 후, 반복 여부 결정되는 do-while로 변경
             weather  = new String[]{"1. 맑음", "2. 흐림", "3. 비", "4. 더움", "5. 추움"};
             weatherMsg = "오 늘 의 날 씨 는?";
             MainMsg(weatherMsg);
@@ -25,22 +26,24 @@ public class UserChoice implements LuckyItemQuestion {
 
             try {
                 weatherChoice = sc.nextInt();
-                switch (weatherChoice) {
+                isValid =  switch (weatherChoice) { // 사용자 선택 유효성 체크
                     case 1, 2, 3, 4, 5 -> {
                         TodayFeelings();
+                        yield true;
                     }
                     default -> {
                         ErrorMsg();
-                        continue;
+                        yield false;
                     }
-                }
+                };
             } catch (Exception e) {
                 ErrorMsg();
-                weatherChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                isValid = false;
 
             }
-
         }
+        while(!isValid); // 유효하지 않은 경우 반복
     }
 
     @Override
@@ -48,8 +51,9 @@ public class UserChoice implements LuckyItemQuestion {
         String[] Feelings;
         int FeelingsChoice;
         String FeelingsMsg;
+        boolean isValid;
 
-        while (true) {
+        do {
             Feelings = new String[]{"1. 상 쾌", "2. 우 울", "3. 분 노", "4. 유 쾌",
                     "5. 평 범", "6. 짜 증", "7. 따 분", "8. 짜 릿"};
             FeelingsMsg = "오 늘 의 기 분 은 ?";
@@ -62,21 +66,23 @@ public class UserChoice implements LuckyItemQuestion {
 
             try {
                 FeelingsChoice = sc.nextInt();
-                switch (FeelingsChoice) {
+                isValid =  switch (FeelingsChoice) {
                     case 1, 2, 3, 4, 5, 6, 7, 8, 9 -> {
                         AloneOrNot();
+                        yield true;
                     }
                     default -> {
                         ErrorMsg();
-                        continue;
+                        yield false;
                     }
-                }
+                };
             } catch (Exception e) {
                 ErrorMsg();
-                FeelingsChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                isValid = false;
             }
         }
-
+        while(!isValid); // 유효하지 않은 경우 반복)
     }
 
     @Override
@@ -84,8 +90,9 @@ public class UserChoice implements LuckyItemQuestion {
         String[] alone;
         int aloneOrNotChoice;
         String aloneMsg;
+        boolean isValid;
 
-        while (true) {
+        do {
             alone  = new String[]{"1. 네", "2. 아니오"};
             aloneMsg = "혼 자 이 신 가 요 ?";
 
@@ -97,32 +104,37 @@ public class UserChoice implements LuckyItemQuestion {
 
             try {
                 aloneOrNotChoice = sc.nextInt();
-                switch (aloneOrNotChoice) {
+                isValid = switch (aloneOrNotChoice) {
                     case 1 -> {
                         GoingWhere();
+                        yield true;
                     }
                     case 2 -> {
                         MeetWho who = new MeetWho();
                         who.MeetWho();
+                        yield true;
                     }
                     default -> {
                         ErrorMsg();
-                        aloneOrNotChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                        yield false;
                     }
-                }
+                };
             } catch (Exception e) {
                 ErrorMsg();
-                continue;
+                sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                isValid = false;
             }
         }
+        while(!isValid); // 유효하지 않은 경우 반복
     }
 
     public void GoingWhere() {
         String[] where;
         int whereChoice;
         String whereMsg;
+        boolean isValid;
 
-        while (true) {
+        do {
             where = new String[]{"1. 카 페", "2. 도서관", "3. 학 교", "4. 회 사",
                     "5. 놀이 공원", "6. 바 다", "7. 숲 & 산", "8. 전 시 회", "9. 집이 최고"};
             whereMsg = "어 디 로 가 볼 건 가 요?";
@@ -135,28 +147,33 @@ public class UserChoice implements LuckyItemQuestion {
 
             try {
                 whereChoice = sc.nextInt();
-                switch (whereChoice) {
+                isValid = switch (whereChoice) {
                     case 1, 2, 3, 4, 5, 6, 7, 8, 9 -> {
                         GoingHow how = new GoingHow();
                         how.GoHow();
+                        yield true;
                     }
                     default -> {
                         ErrorMsg();
-                        continue;
+                        yield false;
                     }
-                }
+                };
             } catch (Exception e) {
                 ErrorMsg();
-                whereChoice = sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                sc.nextInt(); // 컈치안에서 무한 반복 탈출 위해서 재 초기화
+                isValid = false;
             }
         }
+        while(!isValid); // 유효하지 않은 경우 반복
     }
 
     @Override
     public void LuckyPrint() {
-        while(true){
-            String last;
-            String itemList;
+        String last;
+        String itemList;
+        boolean repeat;
+
+        do {
             System.out.println(".･ ｡ ⊹ + ஐ 행 운 을 불 러 오 는 중 ஐ + ⊹ ｡ ･." + "\n");
             try {
                 TimeUnit.SECONDS.sleep(3);
@@ -186,16 +203,18 @@ public class UserChoice implements LuckyItemQuestion {
                 switch (last){
                     case "y" -> {
                         TodayWeather();
+                        repeat = true;
                     }
                     case "n" -> {
                         System.out.println(".･ ｡ ⊹ + ஐ ஐ 행 운 을 빕 니 다 ஐ ஐ *+ ⊹ ｡ ･.");
                         System.out.println(".･ ｡ ⊹ + ஐ ஐ T H E - E N D ஐ ஐ *+ ⊹ ｡ ･.");
                         System.exit(0);
+                        repeat = false;
                     }
                     default -> {
                         ErrorMsg();
-                        EndOrNot();
-                        break;
+                        //EndOrNot();
+                        repeat = true;
                     }
                 }
 
@@ -204,29 +223,30 @@ public class UserChoice implements LuckyItemQuestion {
             }
 
         }
+        while(repeat);
     }
 
-    private void EndOrNot() {
-        String ans = sc.nextLine();
-
-        System.out.println(" .･ ｡ ⊹ + ஐ 다 시 하 시 겠 습 니 까 ? ஐ + ⊹ ｡ ･.");
-        System.out.println("  .･ ｡ ⊹ + ஐ ஐ ஐ ஐ y / n ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
-
-        switch (ans){
-            case "y" -> {
-                TodayWeather();
-            }
-            case "n" -> {
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ 행 운 을 빕 니 다 ஐ ஐ *+ ⊹ ｡ ･.");
-                System.out.println(".･ ｡ ⊹ + ஐ ஐ T H E - E N D ஐ ஐ *+ ⊹ ｡ ･.");
-                System.exit(0);
-            }
-            default -> {
-                EndOrNot();
-                break;
-            }
-        }
-    }
+//    private void EndOrNot() {
+//        String ans = sc.nextLine();
+//
+//        System.out.println(" .･ ｡ ⊹ + ஐ 다 시 하 시 겠 습 니 까 ? ஐ + ⊹ ｡ ･.");
+//        System.out.println("  .･ ｡ ⊹ + ஐ ஐ ஐ ஐ y / n ஐ ஐ ஐ ஐ + ⊹ ｡ ･." + "\n");
+//
+//        switch (ans){
+//            case "y" -> {
+//                TodayWeather();
+//            }
+//            case "n" -> {
+//                System.out.println(".･ ｡ ⊹ + ஐ ஐ 행 운 을 빕 니 다 ஐ ஐ *+ ⊹ ｡ ･.");
+//                System.out.println(".･ ｡ ⊹ + ஐ ஐ T H E - E N D ஐ ஐ *+ ⊹ ｡ ･.");
+//                System.exit(0);
+//            }
+//            default -> {
+//                EndOrNot();
+//                break;
+//            }
+//        }
+//    }
 
     // 입력 오류 메세지
     public void ErrorMsg(){
