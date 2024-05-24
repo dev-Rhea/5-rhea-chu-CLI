@@ -8,8 +8,6 @@ public class LuckyItem implements LuckyList{
     int randomIndex;
     public void LuckyThing() {
         ArrayList<String> luckyItems = new ArrayList<>();
-        try {
-            TimeUnit.SECONDS.sleep(2);
 
             luckyItems.add("장 미 꽃 다 발");
             luckyItems.add("황 금 열 쇠");
@@ -21,18 +19,12 @@ public class LuckyItem implements LuckyList{
             luckyItems.add("리 모 콘");
             luckyItems.add("펜");
 
-            randomIndex = (int) (Math.random() * luckyItems.size());
-            LuckyItemPrint(luckyItems.get(randomIndex)); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+            LuckyItemSettings(luckyItems);
     }
 
     @Override
     public void LuckyColor() {
         ArrayList<String> luckyColors = new ArrayList<>();
-        try {
-            TimeUnit.SECONDS.sleep(2);
 
             luckyColors.add("R E D");
             luckyColors.add("B L U E");
@@ -41,13 +33,7 @@ public class LuckyItem implements LuckyList{
             luckyColors.add("G R E E N");
             luckyColors.add("O R A N G E");
 
-            randomIndex = (int) (Math.random() * luckyColors.size());
-
-            LuckyItemPrint(luckyColors.get(randomIndex)); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+            LuckyItemSettings(luckyColors);
     }
 
     @Override
@@ -58,6 +44,17 @@ public class LuckyItem implements LuckyList{
             randomIndex = (int) (Math.random() * 100) + 1;
             LuckyItemPrint(Integer.toString(randomIndex));
         } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void LuckyItemSettings(ArrayList<String> items){
+        try{
+            TimeUnit.SECONDS.sleep(2);
+            randomIndex = (int) (Math.random() * items.size());
+            LuckyItemPrint(items.get(randomIndex)); // 랜덤 인덱스에서 받은 정수를 문자열로 변환
+        }
+        catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

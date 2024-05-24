@@ -7,4 +7,5 @@ public interface LuckyItemQuestion {
     public void AloneOrNot();
     public void LuckyPrint();
     public void ErrorMsg();
+    public int UserInputHandler(String[] options, String message, int maxChoice);
 }
